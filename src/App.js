@@ -48,8 +48,8 @@ function App() {
 
     const doubleClick$ = forclick$.pipe(
       buffer(forclick$.pipe(debounceTime(300))),
-      map((val) => val.length),
-      filter((click) => click >= 2)
+      map((clicksWithin300ms) => clicksWithin300ms.length),
+      filter((clicksWithin300ms) => clicksWithin300ms === 2)
     );
 
     const suber$ = timer$
